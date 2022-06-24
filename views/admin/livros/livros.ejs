@@ -1,0 +1,121 @@
+<%- include('../../partials/header.ejs') %>
+    <%- include('../../partials/navbar.ejs') %>
+
+        <br><br>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h1>Livros</h1>
+                        </div>
+                        <div class="card-body">
+                            <button class="btn btn-success" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">Adicionar Livros</button>
+                            <br><br>
+                            <table class="table" id="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#id</th>
+                                        <th scope="col">Nome Livro</th>
+                                        <th scope="col">Código</th>
+                                        <th scope="col">Disponivel</th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table_livros">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Modal para adicionar -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Adicionar Livros</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <form>
+                            <input type="text" id="nome_livro" class="form-control mt-3" placeholder="Nome Livro"
+                                required>
+                            <input type="text" id="codigo_livro" class="form-control mt-3" placeholder="Código"
+                                required>
+                        </form>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick="CadastrarLivro()">Cadastrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para Editar -->
+        <div class="modal fade" id="modal_editar_livro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Editar Livros</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <form>
+
+                            <input type="hidden" id="id_livro">
+
+                            <input type="text" id="nome_livro_editar" class="form-control mt-3" placeholder="Nome Livro"
+                                required>
+                            <input type="text" id="codigo_livro_editar" class="form-control mt-3" placeholder="Código"
+                                required>
+                        </form>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick="update()">Editar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include('../../partials/footer.ejs') %>
+<script src="/axios/livros.js"></script>
+<script>
+getLivros()
+</script>

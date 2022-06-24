@@ -1,0 +1,30 @@
+<%- include('partials/header.ejs') %>
+    <%- include('partials/homenavbar.ejs') %>
+
+        <div class="container-fluid mt-3">
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1>Login</h1>
+                            <%= msg %>
+                        </div>
+                        <div class="card-body">
+
+                            <form action="/authenticate" method="POST">
+                                <input type="text" name="email" class="form-control mt-3" placeholder="Email" required>
+                                <input type="text" name="senha" class="form-control mt-3" placeholder="Senha" required>
+                                <button class="btn btn-success mt-3">Entrar</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+        </div>
+
+        <%- include('partials/footer.ejs') %>

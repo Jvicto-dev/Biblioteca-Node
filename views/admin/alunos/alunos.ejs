@@ -1,0 +1,108 @@
+<%- include('../../partials/header.ejs') %>
+    <%- include('../../partials/navbar.ejs') %>
+
+        <br><br>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h1>Alunos</h1>
+                        </div>
+                        <div class="card-body">
+                            <button class="btn btn-success" data-bs-toggle="modal"
+                                data-bs-target="#cadastrar_aluno_modal">Adicionar Alunos</button>
+                            <br><br>
+                            <table class="table" id="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#id</th>
+                                        <th scope="col">Nome Alunos</th>
+                                        <th scope="col">idade</th>
+                                        <th scope="col">turma</th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table_alunos">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Modal para adicionar -->
+        <div class="modal fade" id="cadastrar_aluno_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Adicionar Alunos</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <form>
+                            <input type="text" id="nome_aluno" class="form-control mt-3" placeholder="Nome Aluno" required>
+                            <input type="text" id="idade_aluno" class="form-control mt-3" placeholder="Idade" required>
+                            <input type="text" id="turma_aluno" class="form-control mt-3" placeholder="Turma" required>
+                        </form>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick="CadastrarAluno()">Cadastrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para Editar -->
+        <div class="modal fade" id="modal_editar_aluno" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Editar Aluno</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <form>
+                            <input type="hidden" id="id_aluno">
+                            <input type="text" id="nome_aluno_editar" class="form-control mt-3" placeholder="Nome Aluno" required>
+                            <input type="text" id="idade_aluno_editar" class="form-control mt-3" placeholder="Idade" required>
+                            <input type="text" id="turma_aluno_editar" class="form-control mt-3" placeholder="Turma" required>
+                        </form>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick="update()">Editar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+<%- include('../../partials/footer.ejs') %>
+<script src="/axios/alunos.js"></script>
+<script>
+getAlunos()
+</script>
